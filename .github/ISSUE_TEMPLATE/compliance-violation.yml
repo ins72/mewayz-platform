@@ -1,0 +1,202 @@
+name: 🚨 Compliance Violation Report
+description: Report a compliance violation that requires manual attention
+title: "[COMPLIANCE] Compliance violation requires attention"
+labels:
+  - compliance
+  - violation
+  - urgent
+assignees:
+  - octocat
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚨 Enterprise Compliance Violation Report
+        
+        Use this form to report compliance violations that couldn't be automatically fixed by BugBot.
+        
+        **Please ensure this is a genuine compliance issue before submitting.**
+
+  - type: dropdown
+    id: violation-type
+    attributes:
+      label: Violation Type
+      description: What type of compliance violation is this?
+      options:
+        - Mock Data Usage
+        - Multiple Authentication Systems
+        - Missing Database Integration
+        - Style Reference Non-Compliance
+        - Security Vulnerability
+        - Performance Issue
+        - Real-time Features Missing
+        - Documentation Issue
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Level
+      description: How severe is this violation?
+      options:
+        - Critical (Blocks Production)
+        - High (Requires Immediate Fix)
+        - Medium (Should be Fixed Soon)
+        - Low (Minor Issue)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Violation Description
+      description: Describe the compliance violation in detail
+      placeholder: |
+        Clearly describe:
+        - What rule is being violated
+        - Where the violation occurs (file/line)
+        - Why this violates enterprise standards
+        - Impact on system compliance
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: File/Location
+      description: Specify the exact location of the violation
+      placeholder: |
+        Examples:
+        - backend/routes/example.js:42
+        - frontend/components/Header/index.tsx:15-25
+        - Multiple files in backend/middleware/
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Provide code snippets or other evidence of the violation
+      placeholder: |
+        ```javascript
+        // Paste the problematic code here
+        const mockData = [{id: 1, name: "fake"}]; // VIOLATION: Mock data usage
+        ```
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Compliance Behavior
+      description: What should the code look like to be compliant?
+      placeholder: |
+        Describe the compliant implementation:
+        - Use real database operations
+        - Follow enterprise authentication patterns
+        - Comply with style-reference standards
+        - etc.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: auto-fix-attempted
+    attributes:
+      label: BugBot Auto-Fix Status
+      description: Did BugBot attempt to fix this automatically?
+      options:
+        - "Yes - Fix failed"
+        - "Yes - Fix incomplete"
+        - "No - Manual fix required"
+        - "Unknown"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: If you have a solution, describe it here
+      placeholder: |
+        Suggest how to fix this violation:
+        - Replace mock data with Model.find() operation
+        - Update authentication to use enterpriseAuth middleware
+        - Apply style-reference components
+        - etc.
+
+  - type: checkboxes
+    id: impact-assessment
+    attributes:
+      label: Impact Assessment
+      description: What areas does this violation affect?
+      options:
+        - label: Security (affects system security)
+        - label: Performance (affects system performance)
+        - label: Scalability (affects ability to scale)
+        - label: Maintainability (affects code maintenance)
+        - label: User Experience (affects user experience)
+        - label: Production Deployment (blocks deployment)
+        - label: Enterprise Compliance (violates enterprise standards)
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Fix Urgency
+      description: How urgently does this need to be fixed?
+      options:
+        - Immediate (within 1 hour)
+        - Same Day (within 24 hours)
+        - This Week (within 7 days)
+        - Next Sprint (within 2 weeks)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: |
+        - Related issues or PRs
+        - Business impact
+        - Technical constraints
+        - Timeline requirements
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Reporter Checklist
+      description: Please confirm you have completed these steps
+      options:
+        - label: I have verified this is a genuine compliance violation
+          required: true
+        - label: I have checked that BugBot hasn't already fixed this issue
+          required: true
+        - label: I have provided sufficient detail for investigation
+          required: true
+        - label: I have assessed the impact and urgency accurately
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What Happens Next?
+        
+        1. **Automatic Triage**: This issue will be automatically labeled and prioritized
+        2. **BugBot Analysis**: BugBot will analyze if this can be auto-fixed
+        3. **Team Assignment**: The issue will be assigned to the appropriate team member
+        4. **Resolution Tracking**: Progress will be tracked until compliance is achieved
+        
+        **For critical violations**, expect immediate attention within 1 hour.
+        
+        ---
+        
+        **Enterprise Compliance System** | *Ensuring 100% compliance with enterprise standards* 

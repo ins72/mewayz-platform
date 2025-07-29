@@ -1,0 +1,309 @@
+---
+alwaysApply: false
+---
+# Next.js Dynamic Rendering Configuration Prompt
+
+## Task: Implement Enterprise-Level Dynamic Rendering Configuration
+
+You need to properly configure Next.js App Router dynamic rendering across the MEWAYZ platform. This is critical for real-time data delivery and user-specific content.
+
+## 🎯 Primary Objective
+
+Configure `export const dynamic = 'force-dynamic'` strategically across all relevant pages and components to ensure:
+- Real-time database connectivity
+- User-specific content delivery
+- Plan-based feature rendering
+- Enterprise-level performance and reliability
+
+## 📋 Implementation Requirements
+
+### 1. Dynamic Rendering Rules
+
+**MUST use `force-dynamic` for:**
+```javascript
+// User-specific pages
+export const dynamic = 'force-dynamic';
+```
+
+- All dashboard pages (`/dashboard/*`)
+- User profile and settings pages
+- Admin panel pages (`/admin/*`)
+- Analytics and reporting pages
+- Real-time data pages (orders, messages, notifications)
+- Plan-specific feature pages
+- White-label customized pages (Enterprise)
+- API route handlers that query user data
+- Pages with authentication-dependent content
+- Support ticket and live chat pages
+- CRM and customer data pages
+- Course progress and student-specific content
+- E-commerce cart and checkout pages
+- Social media management dashboards
+
+**MUST use `force-static` with revalidation for:**
+```javascript
+// Public content with occasional updates
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidate every hour
+```
+
+- Marketing landing pages (`/`, `/pricing`, `/features`)
+- Blog posts and articles (`/blog/*`)
+- Knowledge base articles (`/help/*`, `/docs/*`)
+- Legal pages (`/legal/*`)
+- Public API documentation
+- Static resource pages
+
+**Use `auto` for:**
+```javascript
+// Mixed content - let Next.js decide
+export const dynamic = 'auto';
+```
+
+- Search results pages
+- Category listing pages
+- Public forums (mix of static structure + dynamic content)
+
+### 2. File-by-File Implementation
+
+Create a systematic approach:
+
+```typescript
+// For page components (page.tsx files)
+// At the top of the file, after imports
+export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Disable any caching
+
+// For API routes (route.ts files)
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs'; // Specify runtime if needed
+
+// For layout files that contain user-specific data
+export const dynamic = 'force-dynamic';
+```
+
+### 3. Performance Optimization Rules
+
+**Along with dynamic rendering, implement:**
+
+```typescript
+// Streaming for better UX
+import { Suspense } from 'react';
+
+export default function DynamicPage() {
+  return (
+    <Suspense fallback={<LoadingSkeleton />}>
+      <DynamicContent />
+    </Suspense>
+  );
+}
+
+// Error boundaries for reliability
+import { ErrorBoundary } from 'react-error-boundary';
+
+export default function Page() {
+  return (
+    <ErrorBoundary fallback={<ErrorFallback />}>
+      <DynamicContent />
+    </ErrorBoundary>
+  );
+}
+```
+
+### 4. Caching Strategy Implementation
+
+```typescript
+// For API routes with dynamic rendering
+import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
+
+export async function GET(request: NextRequest) {
+  // Set appropriate cache headers
+  const response = NextResponse.json(data);
+  
+  // For user-specific data - no cache
+  response.headers.set('Cache-Control', 'no-store, must-revalidate');
+  
+  // For semi-dynamic data - short cache
+  // response.headers.set('Cache-Control', 'public, max-age=60');
+  
+  return response;
+}
+```
+
+### 5. Environment-Specific Configuration
+
+```typescript
+// Conditional dynamic rendering based on environment
+export const dynamic = process.env.NODE_ENV === 'development' ? 'force-dynamic' : 'auto';
+
+// Or more sophisticated logic
+export const dynamic = (() => {
+  if (process.env.FORCE_STATIC === 'true') return 'force-static';
+  if (process.env.NODE_ENV === 'development') return 'force-dynamic';
+  return 'auto';
+})();
+```
+
+## 🔒 Security & Enterprise Considerations
+
+### 1. Authentication-Aware Dynamic Rendering
+
+```typescript
+export const dynamic = 'force-dynamic';
+
+export default async function ProtectedPage() {
+  // Always verify authentication for dynamic pages
+  const session = await getServerSession();
+  
+  if (!session) {
+    redirect('/login');
+  }
+  
+  // Render user-specific content
+  return <UserDashboard user={session.user} />;
+}
+```
+
+### 2. Plan-Based Dynamic Rendering
+
+```typescript
+export const dynamic = 'force-dynamic';
+
+export default async function FeaturePage() {
+  const user = await getCurrentUser();
+  
+  // Render different content based on plan
+  if (user.plan === 'enterprise') {
+    return <EnterpriseFeatures />;
+  } else if (user.plan === 'pro') {
+    return <ProFeatures />;
+  } else {
+    return <FreeFeatures />;
+  }
+}
+```
+
+### 3. White-Label Dynamic Rendering
+
+```typescript
+export const dynamic = 'force-dynamic';
+
+export default async function WhiteLabelPage() {
+  const subdomain = getSubdomain();
+  const branding = await getBrandingConfig(subdomain);
+  
+  return (
+    <div style={{ '--primary-color': branding.primaryColor }}>
+      <CustomBrandedContent branding={branding} />
+    </div>
+  );
+}
+```
+
+## 📊 Monitoring & Analytics
+
+### 1. Performance Monitoring
+
+```typescript
+export const dynamic = 'force-dynamic';
+
+export default async function Page() {
+  const startTime = Date.now();
+  
+  try {
+    const data = await fetchUserData();
+    
+    // Log performance metrics
+    console.log(`Page render time: ${Date.now() - startTime}ms`);
+    
+    return <PageContent data={data} />;
+  } catch (error) {
+    // Log errors for monitoring
+    console.error('Dynamic page error:', error);
+    throw error;
+  }
+}
+```
+
+### 2. A/B Testing with Dynamic Rendering
+
+```typescript
+export const dynamic = 'force-dynamic';
+
+export default async function TestPage() {
+  const user = await getCurrentUser();
+  const variant = await getABTestVariant(user.id, 'homepage-test');
+  
+  return variant === 'A' ? <VariantA /> : <VariantB />;
+}
+```
+
+## 🚨 Critical Implementation Rules
+
+### DO:
+- ✅ Add `export const dynamic = 'force-dynamic'` at the top of files (after imports)
+- ✅ Use Suspense boundaries for better UX
+- ✅ Implement proper error handling
+- ✅ Set appropriate cache headers in API routes
+- ✅ Test performance impact of dynamic rendering
+- ✅ Monitor server resources and scaling needs
+- ✅ Use TypeScript for better reliability
+
+### DON'T:
+- ❌ Use `force-dynamic` on static marketing pages
+- ❌ Forget to handle loading states
+- ❌ Skip error boundaries
+- ❌ Cache user-specific data inappropriately
+- ❌ Use dynamic rendering without proper authentication checks
+- ❌ Ignore performance monitoring
+- ❌ Mix static and dynamic content without clear strategy
+
+## 📝 File Structure Example
+
+```
+/app
+├── page.tsx                    # export const dynamic = 'force-static'
+├── pricing/page.tsx           # export const dynamic = 'force-static'
+├── dashboard/
+│   ├── page.tsx              # export const dynamic = 'force-dynamic'
+│   ├── analytics/page.tsx    # export const dynamic = 'force-dynamic'
+│   └── settings/page.tsx     # export const dynamic = 'force-dynamic'
+├── admin/
+│   └── page.tsx              # export const dynamic = 'force-dynamic'
+├── api/
+│   ├── users/route.ts        # export const dynamic = 'force-dynamic'
+│   └── public-data/route.ts  # export const dynamic = 'force-static'
+└── blog/
+    └── [slug]/page.tsx       # export const dynamic = 'force-static'
+```
+
+## ✅ Validation Checklist
+
+After implementation, verify:
+
+- [ ] All user-specific pages use `force-dynamic`
+- [ ] All public/marketing pages use `force-static` with appropriate revalidation
+- [ ] API routes have correct dynamic settings
+- [ ] Loading states are implemented with Suspense
+- [ ] Error boundaries are in place
+- [ ] Performance monitoring is active
+- [ ] Authentication checks work with dynamic rendering
+- [ ] Plan-based content renders correctly
+- [ ] White-label branding works dynamically
+- [ ] Cache headers are set appropriately
+- [ ] TypeScript types are properly defined
+
+## 🎯 Expected Outcomes
+
+After proper implementation:
+- Real-time user data updates
+- Personalized content delivery
+- Plan-based feature rendering
+- Optimal performance balance
+- Enterprise-level reliability
+- Proper security isolation
+- Scalable architecture
+
+Remember: This configuration is critical for the MEWAYZ platform's real-time, user-specific, and plan-based functionality. Every dynamic page must connect to the database and render fresh content!

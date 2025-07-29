@@ -1,0 +1,390 @@
+---
+alwaysApply: true
+---
+# MEWAYZ Development Core Rules
+
+## 🚫 STRICT PROHIBITIONS
+
+### Data & Content
+- **NO mock data** - Ever. All data must come from real database
+- **NO random data generation** - Use actual database queries
+- **NO hard-coded values** - All configuration via database/environment variables
+- **NO placeholder content** - Real content or empty states only
+- **NO Lorem ipsum** - Use actual content or proper empty state messages
+
+### Code Quality
+- **NO shortcuts** - Enterprise-level code quality required
+- **NO console.log in production** - Use proper logging systems
+- **NO inline styles** - Use consistent styling system from `/core-2-original/ui`
+- **NO direct database queries in components** - Use proper API layers
+- **NO authentication bypasses** - All routes must be properly secured
+- **NO frontend-only state management** - All state changes must persist to database
+- **NO disconnected UI interactions** - Every button click, form submit, toggle must sync with backend
+
+## ✅ MANDATORY REQUIREMENTS
+
+### Database Integration Rules
+- All CRUD operations must use real database connections
+- Every create/read/update/delete must persist to database immediately
+- Implement proper error handling for all database operations
+- Use database transactions for multi-step operations
+- Include comprehensive data validation before database operations
+- Implement proper database indexing for performance
+- Use connection pooling for scalability
+
+### API Standards (STRICT ENFORCEMENT)
+- RESTful API design patterns mandatory
+- Proper HTTP status codes (200, 201, 400, 401, 403, 404, 500)
+- Consistent error response format across all endpoints
+- Request/response validation middleware on all routes
+- Rate limiting implemented on all endpoints
+- Authentication/authorization checks on protected routes
+- API versioning strategy implemented
+- Comprehensive API documentation with examples
+
+### Security Implementation (NO EXCEPTIONS)
+- JWT token-based authentication with refresh tokens
+- Password hashing with bcrypt (minimum 12 rounds)
+- Input sanitization and validation on all inputs
+- SQL injection prevention (parameterized queries only)
+- XSS protection headers and content sanitization
+- CSRF protection on state-changing operations
+- Secure headers implementation (HSTS, CSP, etc.)
+- Data encryption for sensitive information
+- Audit logging for all sensitive operations
+
+### Frontend Standards (100% COMPLIANCE)
+- **100% database connectivity** - Every state change must persist to database
+- **No frontend-only states** - All data must sync with backend immediately
+- **Real CRUD operations** - Create, Read, Update, Delete must work fully
+- Use the `/frontend/style-reference` folder as styling reference it includes the styles, components,page structere and so on, this should be used and followed consistently across ALL pages
+- Responsive design for mobile/tablet/desktop (breakpoints: 320px, 768px, 1024px, 1440px)
+- Proper loading states and skeleton screens for all data fetching
+- Comprehensive error handling with user-friendly messages
+- Real-time data updates using WebSocket or Server-Sent Events where appropriate
+- Accessibility compliance (WCAG 2.1 AA minimum)
+- SEO optimization for all public pages (meta tags, structured data)
+- Performance optimization (lazy loading, code splitting, image optimization)
+
+## 💼 PLAN STRUCTURE & FEATURES
+
+### Free Plan (30% Revenue Share)
+- ✅ E-commerce
+- ✅ Social media management
+- ✅ Course creation
+- ✅ CRM system
+- 🏷️ MEWAYZ branding
+- 📞 Standard support
+- 💰 30% revenue sharing model
+
+### Pro Plan ($49/month Fixed Fee)
+- ✅ E-commerce
+- ✅ Social media management
+- ✅ Course creation
+- ✅ CRM system
+- 🏷️ Custom branding
+- 📞 Premium support
+- 💰 Flat monthly fee
+
+### Enterprise Plan (15% Revenue Share, min $99/month)
+- ✅ Complete feature suite
+- ✅ White-label platform
+- ✅ Advanced analytics
+- ✅ API access
+- ✅ Security compliance
+- 🏷️ Full white-label/custom branding
+- 📞 Dedicated account manager
+- 💰 15% revenue sharing - minimum fee
+- 📋 SLA guarantees
+- 🔒 Enhanced security features
+
+**CRITICAL: All plans have identical core feature access - only pricing model and Enterprise white-label differ**
+
+## 🎯 ARCHITECTURE FLOW REQUIREMENTS
+
+### Core System Flow
+```
+Database ↔ API ↔ Authentication ↔ Frontend ↔ User Interface
+```
+
+### Quality Gates (MANDATORY)
+- All code must pass linting (ESLint)
+- Unit tests required for all business logic
+- Integration tests for API endpoints
+- Manual testing checklist completion
+- Security audit before deployment
+
+## 📚 SUPPORT & KNOWLEDGE BASE REQUIREMENTS
+
+### Public Support Pages (Accessible to All)
+- **Knowledge Base**: Searchable articles, categorized by topic
+- **FAQ Section**: Dynamic FAQ with voting and usefulness tracking
+- **Video Tutorials**: Embedded video library with transcripts
+- **API Documentation**: Complete API reference with interactive examples
+- **Status Page**: Real-time system status and incident history
+- **Community Forum**: Public discussion forums with moderation
+- **Contact Forms**: Multi-tier contact forms (sales, support, billing)
+- **Live Chat Widget**: Available on all public pages
+- **Resource Downloads**: Whitepapers, guides, templates
+- **Webinar Hub**: Live and recorded webinar access
+
+### Plan-Specific Support Features
+#### Free Plan Support
+- Knowledge base access
+- Community forum access
+- Standard email support (48-72 hour response)
+- Basic chat support during business hours
+
+#### Pro Plan Support  
+- Everything in Free
+- Priority email support (24 hour response)
+- Extended chat support hours
+- Phone support during business hours
+- Access to premium tutorials
+
+#### Enterprise Plan Support
+- Everything in Pro
+- Dedicated account manager
+- 24/7 priority support (4 hour response SLA)
+- Phone support 24/7
+- Screen sharing support sessions
+- Custom training sessions
+- Priority feature requests
+- Direct engineering escalation
+
+### White-Label Support Requirements (Enterprise Only)
+- **Custom Support Portal**: Fully branded support center
+- **Custom Domain**: support.clientdomain.com
+- **Branded Documentation**: Client's branding throughout help content
+- **Custom Knowledge Base**: Client-specific articles and content
+- **Branded Email Templates**: All support emails use client branding
+- **Custom Chat Widget**: Chat widget matches client's brand colors/logo
+- **White-Label API Docs**: API documentation under client's branding
+- **Custom Status Page**: System status page with client branding
+- **Branded Mobile Support**: Support features in white-label mobile apps
+
+### Knowledge Base Management System
+- **Content Management**: WYSIWYG editor for articles
+- **Version Control**: Track changes and maintain article history
+- **Multi-language Support**: Translate articles for global users
+- **Search Optimization**: Advanced search with auto-suggestions
+- **Analytics Tracking**: Track article views, helpfulness ratings
+- **User Feedback**: Allow comments and suggestions on articles
+- **Content Scheduling**: Schedule article publication and updates
+- **Category Management**: Hierarchical categorization system
+- **Tag System**: Flexible tagging for cross-referencing
+- **Access Controls**: Control visibility by user plan/role
+
+## 🛡️ ADMIN PANEL REQUIREMENTS
+
+### Super Admin Capabilities (MUST IMPLEMENT)
+- **Plan Management**: Enable/disable any paid plan globally
+- **User Management**: Full CRUD on any user account
+- **Content Management**: Edit/delete any user's content
+- **Organization Management**: Full control over all organizations
+- **Feature Toggles**: Enable/disable features per plan or globally
+- **Revenue Share Control**: Modify revenue sharing percentages
+- **Billing Override**: Adjust billing, refunds, credits for any account
+- **Support Tools**: Access to all user data for support purposes
+- **Analytics Access**: View all platform analytics and user metrics
+- **System Configuration**: Modify global platform settings
+- **Knowledge Base Admin**: Manage all support content and articles
+- **White-Label Management**: Configure branding for Enterprise clients
+- **Support Queue Management**: Assign and manage all support tickets
+- **Community Moderation**: Full moderation control over forums
+
+### White-Label Admin Controls (Enterprise Management)
+- **Brand Configuration**: Upload logos, set colors, customize themes
+- **Domain Management**: Configure custom domains and SSL certificates
+- **Content Customization**: Modify all text, images, and messaging
+- **Feature Visibility**: Hide/show features per white-label client
+- **Support Portal Setup**: Configure branded support centers
+- **Email Template Management**: Customize all system email templates
+- **Mobile App Branding**: Configure white-label mobile app appearance
+- **API Documentation Branding**: Custom API docs with client branding
+- **Custom CSS/JS Injection**: Allow advanced customization options
+- **Multi-tenant Data Isolation**: Ensure complete data separation
+
+### Admin Security Requirements
+- Multi-factor authentication mandatory
+- Role-based permissions (Super Admin, Admin, Support)
+- Audit logging for all admin actions
+- IP restrictions for admin access
+- Session timeout controls
+- Admin action confirmation prompts
+
+### 📊 DATA FLOW REQUIREMENTS
+
+### User Actions
+```
+Frontend → API Validation → Authentication Check → Database Operation → Response
+```
+
+### Error Handling
+```
+Error Occurs → Log Error → Return Appropriate HTTP Status → Display User-Friendly Message
+```
+
+### State Management
+```
+Database ↔ API ↔ Frontend State ↔ UI Update ↔ User Interaction ↔ API Call ↔ Database Update
+```
+**CRITICAL: Every UI state change must trigger database persistence**
+
+## 🔐 SECURITY CHECKLIST
+
+### Every Feature Must Include:
+- [ ] Authentication verification
+- [ ] Authorization checks (role-based)
+- [ ] Input validation and sanitization
+- [ ] Rate limiting protection
+- [ ] Audit logging for sensitive operations
+- [ ] Secure error messages (no data leakage)
+
+## 🏗️ ARCHITECTURE PATTERNS
+
+### Backend Structure
+```
+/controllers  → Business logic and request handling
+/models      → Database schemas and operations
+/middleware  → Authentication, validation, logging
+/routes      → API endpoint definitions
+/utils       → Helper functions and utilities
+/config      → Configuration management
+```
+
+### Frontend Structure
+```
+/components  → Reusable UI components
+/pages       → Page-level components
+/hooks       → Custom React hooks
+/utils       → Helper functions
+/contexts    → Global state management
+/api         → API integration layer
+```
+
+## 📝 CODING STANDARDS
+
+### Naming Conventions
+- **Variables**: camelCase (userProfile, orderHistory)
+- **Functions**: camelCase with descriptive names (getUserProfile, updateOrderStatus)
+- **Constants**: UPPER_SNAKE_CASE (API_BASE_URL, MAX_RETRY_ATTEMPTS)
+- **Database Tables**: snake_case (user_profiles, order_items)
+- **API Endpoints**: kebab-case (/api/user-profiles, /api/order-history)
+
+### File Organization
+- One component per file
+- Descriptive file names matching component names
+- Group related files in directories
+- Separate business logic from UI components
+- Keep utility functions in dedicated files
+
+## 🧪 TESTING REQUIREMENTS
+
+### Unit Tests
+- All business logic functions
+- Database model methods
+- Utility functions
+- API controller methods
+
+### Integration Tests
+- API endpoint functionality
+- Database operations
+- Authentication flows
+- Error handling scenarios
+
+### End-to-End Tests
+- Critical user workflows
+- Payment processes
+- User registration/login
+- Admin panel operations
+
+## 🚀 DEPLOYMENT STANDARDS
+
+### Environment Configuration
+- Development, Staging, Production environments
+- Environment-specific configuration files
+- Secure secret management
+- Database migration scripts
+- CI/CD pipeline integration
+
+### Performance Requirements
+- API response time < 200ms
+- Page load time < 3 seconds
+- Database query optimization
+- Image/asset optimization
+- CDN implementation for static assets
+
+## 📋 CODE REVIEW CHECKLIST
+
+Before any code merge:
+- [ ] No mock/hard-coded data
+- [ ] Real database integration working
+- [ ] Proper error handling implemented
+- [ ] Security measures in place
+- [ ] Styling consistent with `/core-2-original/ui`
+- [ ] Tests written and passing
+- [ ] Documentation updated
+- [ ] Performance optimized
+
+## 🔄 DEVELOPMENT WORKFLOW RULES
+
+### Code Standards (NON-NEGOTIABLE)
+1. Pull latest changes before starting work
+2. Run all tests locally before committing
+3. Implement with real database integration only
+4. Test functionality manually before code review
+5. Write/update tests for all new functionality
+6. Require code review approval before merging
+
+### Feature Development Rules
+1. Create database schema first if needed
+2. Implement API endpoints with full CRUD operations
+3. Create frontend components with real API integration
+4. **Connect ALL frontend interactions to database**
+5. **Ensure every state change persists immediately**
+6. Add comprehensive error handling
+7. Write tests for all business logic
+8. Document API endpoints completely
+
+## ⚠️ COMMON PITFALLS TO AVOID
+
+- Using setTimeout/setInterval for data fetching
+- Not handling loading/error states
+- Mixing business logic with UI components
+- Skipping input validation
+- Not implementing proper pagination
+- Forgetting mobile responsiveness
+- Not optimizing database queries
+- Missing error boundaries in React
+- Not handling edge cases
+- Skipping accessibility features
+
+## 📈 SUCCESS METRICS
+
+### Code Quality
+- 90%+ test coverage
+- Zero security vulnerabilities
+- No linting errors
+- Consistent code style
+
+### Performance
+- 99.9% uptime target
+- <200ms API response time
+- <3s page load time
+- Efficient database queries
+
+### User Experience
+- Consistent UI/UX across platform
+- Responsive design on all devices
+- Intuitive navigation
+- Clear error messages
+- Fast and reliable functionality
+
+---
+
+## 🎯 REMEMBER: NO EXCEPTIONS
+
+These rules are non-negotiable. Every line of code must meet these standards. When in doubt, always choose the more secure, more robust, and more maintainable approach.
+
+**Quality over speed. Security over convenience. Real data over mock data. Always.**

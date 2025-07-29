@@ -1,0 +1,360 @@
+---
+alwaysApply: true
+---
+# Frontend Development Rules & Style Consistency Guidelines
+
+## Overview
+
+This document establishes mandatory rules and guidelines for all frontend development to ensure complete consistency with the established style reference in `/frontend/style-reference`. Every developer must follow these rules to maintain visual and structural consistency across the entire platform.
+
+---
+
+## 🎯 Core Principles
+
+### 1. Style Reference Authority
+- `/frontend/style-reference` is the **single source of truth** for all styling, components, and page structures
+- All new pages and components must align with patterns established in style-reference
+- When in doubt, always reference existing style-reference implementations
+
+### 2. Zero Deviation Policy
+- **No custom styling** that deviates from style-reference patterns
+- **No new component patterns** without first checking style-reference equivalents
+- **No inconsistent layouts** or structural approaches
+
+---
+
+## 📁 Directory Structure Rules
+
+### Required Structure Alignment
+```
+/frontend
+├── /app                    # Must mirror /frontend/style-reference/app
+├── /templates              # Must mirror /frontend/style-reference/templates  
+├── /components             # Reusable components from style-reference
+├── /styles                 # Exact same styling system as style-reference
+└── /assets                 # Consistent asset organization
+```
+
+### Page Organization
+- **Existing Similar Pages**: Use exact same structure and components as style-reference equivalent
+- **New Unique Pages**: Follow closest style-reference pattern and adapt consistently
+- **Template Inheritance**: All pages must inherit from established template patterns
+
+---
+
+## 🧩 Component Usage Rules
+
+### 1. Component Reuse Priority
+```
+Priority 1: Use existing style-reference component exactly as-is
+Priority 2: Adapt existing style-reference component with minimal changes  
+Priority 3: Create new component following style-reference patterns
+Priority 4: Never create completely custom components
+```
+
+### 2. Component Discovery Process
+Before creating any component:
+1. **Search ALL style-reference locations** for existing solutions:
+   - `/frontend/style-reference/components/` - Dedicated component library
+   - `/frontend/style-reference/app/` - Page-specific component patterns
+   - `/frontend/style-reference/templates/` - Template-level components  
+   - `/frontend/style-reference/pages/` - Additional page examples
+   - Any other subdirectories with relevant patterns
+2. **Check similar functionality** across different page types
+3. **Review template inheritance** patterns for reusable elements
+4. **Only then** consider creating new component following established patterns
+
+### 3. Component Creation Rules
+When creating new components:
+- **Follow naming conventions** from style-reference
+- **Use same prop patterns** as similar style-reference components
+- **Apply same styling approach** (classes, structure, methodology)
+- **Maintain same responsive behavior** patterns
+- **Include same accessibility features** as reference components
+
+---
+
+## 🎨 Styling Rules
+
+### 1. CSS/Styling System
+- **Use exact same CSS framework/methodology** as style-reference
+- **Reuse existing CSS classes** from style-reference
+- **Follow same naming conventions** for new classes
+- **Maintain same responsive breakpoints** and patterns
+
+### 2. Design Tokens
+- **Colors**: Use only colors defined in style-reference
+- **Typography**: Use only fonts, sizes, and weights from style-reference  
+- **Spacing**: Use only margin/padding values from style-reference
+- **Shadows/Effects**: Use only effects defined in style-reference
+
+### 3. Layout Patterns
+- **Grid Systems**: Use same grid approach as style-reference
+- **Flexbox Usage**: Follow same flex patterns from style-reference
+- **Container Widths**: Use same max-widths and container patterns
+- **Alignment**: Follow same alignment and positioning approaches
+
+---
+
+## 📄 Page Development Rules
+
+### For Similar Pages (When style-reference equivalent exists)
+
+#### Mandatory Steps:
+1. **Identify Reference Page**: Search for closest match across ALL style-reference locations:
+   - `/frontend/style-reference/app/`
+   - `/frontend/style-reference/templates/`
+   - `/frontend/style-reference/components/`
+   - `/frontend/style-reference/pages/`
+   - Any other subdirectories in style-reference
+2. **Component Inventory**: List all components used in reference page
+3. **Structure Mapping**: Map exact HTML structure and layout
+4. **Styling Analysis**: Note all CSS classes and styling approaches
+5. **Exact Replication**: Replicate structure, components, and styling exactly
+6. **Content Adaptation**: Only change content, never structure or styling
+
+#### Reference Page Search Priority:
+```
+1. Check /frontend/style-reference/app/ for page matches
+2. Check /frontend/style-reference/templates/ for template matches
+3. Check /frontend/style-reference/pages/ for additional page examples
+4. Check /frontend/style-reference/components/ for component-level examples
+5. Search all subdirectories for similar functionality or layout
+```
+
+#### Example Workflow:
+```
+Search Locations:
+- /frontend/style-reference/app/dashboard.html
+- /frontend/style-reference/templates/admin-layout.html
+- /frontend/style-reference/pages/user-dashboard.html
+
+Reference Found: /frontend/style-reference/templates/dashboard-template.html
+Target: /frontend/app/admin-dashboard.html
+
+✅ DO: Use same layout grid, same components, same styling
+✅ DO: Replace dashboard data with admin-specific data  
+❌ DON'T: Change component structure or add new styling
+❌ DON'T: Modify layout patterns or spacing
+```
+
+### For Unique Pages (No style-reference equivalent exists)
+
+#### Mandatory Steps:
+1. **Find Closest Pattern**: Search ALL style-reference locations for most similar page:
+   - `/frontend/style-reference/app/` - Direct page matches
+   - `/frontend/style-reference/templates/` - Template patterns
+   - `/frontend/style-reference/pages/` - Additional page examples
+   - `/frontend/style-reference/components/` - Component-level patterns
+2. **Extract Reusable Elements**: Identify components and patterns to reuse across all locations
+3. **Adapt Consistently**: Modify only content and functionality, never visual patterns
+4. **Validate Consistency**: Ensure new page feels cohesive with ALL style-reference pages
+
+#### Component Usage Priority:
+```
+1. Header/Navigation: Use exact same header from style-reference
+2. Footer: Use exact same footer from style-reference  
+3. Sidebar: Use same sidebar pattern if applicable
+4. Content Areas: Adapt content area patterns from similar pages
+5. Forms: Use same form components and styling
+6. Buttons/Actions: Use same button styles and patterns
+7. Cards/Containers: Use same card/container components
+```
+
+---
+
+## 🔧 Technical Implementation Rules
+
+### 1. HTML Structure
+- **Use same HTML5 semantic structure** as style-reference
+- **Maintain same class naming patterns**
+- **Follow same accessibility markup** patterns
+- **Use same data attributes** and JavaScript hooks
+
+### 2. JavaScript/Framework Integration
+- **Use same JavaScript patterns** for interactivity
+- **Follow same event handling approaches**
+- **Maintain same state management patterns**
+- **Use same animation/transition approaches**
+
+### 3. Responsive Design
+- **Use same responsive patterns** from style-reference
+- **Follow same mobile-first approach**
+- **Use same breakpoint values**
+- **Maintain same responsive component behavior**
+
+---
+
+## 📋 Quality Assurance Checklist
+
+### Before Submitting Any Frontend Work:
+
+#### Visual Consistency Check
+- [ ] Page looks consistent with style-reference pages
+- [ ] Components match style-reference component appearance
+- [ ] Colors, fonts, and spacing match exactly
+- [ ] Responsive behavior matches style-reference patterns
+
+#### Structural Consistency Check  
+- [ ] HTML structure follows style-reference patterns
+- [ ] CSS classes follow same naming conventions
+- [ ] Component organization matches style-reference approach
+- [ ] JavaScript functionality follows same patterns
+
+#### Component Reuse Check
+- [ ] All possible components reused from style-reference
+- [ ] New components follow style-reference patterns
+- [ ] No duplicate functionality created
+- [ ] Component props and API consistent with style-reference
+
+#### Accessibility Check
+- [ ] Same accessibility features as style-reference
+- [ ] Proper semantic markup maintained
+- [ ] Keyboard navigation consistent
+- [ ] Screen reader compatibility maintained
+
+---
+
+## 🚫 Common Violations to Avoid
+
+### Styling Violations
+- ❌ Creating custom CSS without checking style-reference first
+- ❌ Using different color values than style-reference
+- ❌ Creating new spacing/sizing patterns
+- ❌ Ignoring responsive patterns from style-reference
+
+### Component Violations
+- ❌ Creating new components when style-reference has equivalent
+- ❌ Modifying existing style-reference components unnecessarily
+- ❌ Inconsistent component naming or API patterns
+- ❌ Breaking component reusability patterns
+
+### Structure Violations
+- ❌ Using different HTML structure than style-reference
+- ❌ Ignoring established layout patterns  
+- ❌ Creating inconsistent page templates
+- ❌ Breaking navigation or common element patterns
+
+---
+
+## 🔄 Component Development Workflow
+
+### When Creating New Components:
+
+#### Step 1: Research Phase
+```
+1. Search ALL style-reference locations for similar components:
+   - /frontend/style-reference/components/
+   - /frontend/style-reference/app/
+   - /frontend/style-reference/templates/
+   - /frontend/style-reference/pages/
+   - Any other subdirectories
+2. Analyze closest matches for patterns across all locations
+3. Document required functionality differences
+4. Plan adaptation strategy based on best match found
+```
+
+#### Step 2: Design Phase
+```  
+1. Sketch component following style-reference patterns
+2. Define props/API matching style-reference conventions
+3. Plan styling using existing design tokens
+4. Validate responsive behavior approach
+```
+
+#### Step 3: Implementation Phase
+```
+1. Create component structure following style-reference patterns
+2. Apply styling using existing CSS classes/patterns
+3. Implement functionality following style-reference JS patterns
+4. Test responsive behavior matches expectations
+```
+
+#### Step 4: Integration Phase
+```
+1. Test component in context with other style-reference components
+2. Validate visual consistency across different page contexts
+3. Ensure component works with existing theming/styling
+4. Document component following style-reference documentation patterns
+```
+
+---
+
+## 📚 Reference Resources
+
+### Primary References
+- **Component Library**: `/frontend/style-reference/components/`
+- **Page Templates**: `/frontend/style-reference/templates/`  
+- **Page Examples**: `/frontend/style-reference/app/`
+- **Additional Pages**: `/frontend/style-reference/pages/`
+- **Asset Library**: `/frontend/style-reference/assets/`
+- **All Subdirectories**: Any other folders within `/frontend/style-reference/`
+
+### Secondary References
+- **Component Documentation**: Review existing component docs in style-reference
+- **Styling Documentation**: CSS/styling guidelines from style-reference
+- **JavaScript Patterns**: JS implementation patterns from style-reference
+
+---
+
+## 🎯 Success Metrics
+
+### Visual Consistency
+- New pages indistinguishable from style-reference pages in terms of visual design
+- Components seamlessly integrate with existing style-reference components
+- No visual inconsistencies across the platform
+
+### Code Quality
+- New code follows exact same patterns as style-reference
+- Component reuse maximized, duplication minimized
+- Maintainability preserved through consistent patterns
+
+### User Experience
+- Navigation and interaction patterns consistent across all pages
+- Learning curve minimized through consistent interface patterns
+- Accessibility maintained at same level as style-reference
+
+---
+
+## 🔍 Review Process
+
+### Self-Review Checklist
+Before any code submission, developers must complete:
+- [ ] Visual comparison with style-reference pages
+- [ ] Component reuse audit
+- [ ] Styling consistency verification
+- [ ] Responsive behavior testing
+- [ ] Accessibility testing
+
+### Peer Review Requirements
+- All frontend code must be reviewed by developer familiar with style-reference
+- Reviewer must verify adherence to these rules
+- Any deviations must be documented and justified
+
+### Final Approval
+- Tech lead approval required for any new component patterns
+- Design approval required for any visual adaptations
+- Documentation must be updated for any new patterns established
+
+---
+
+## 🚀 Implementation Priority
+
+### Phase 1: Inventory and Mapping
+1. Complete audit of existing `/frontend` against `/frontend/style-reference`
+2. Create component mapping document
+3. Identify inconsistencies and plan fixes
+
+### Phase 2: Alignment
+1. Update existing pages to match style-reference patterns
+2. Refactor components to ensure consistency
+3. Implement missing components from style-reference
+
+### Phase 3: Guidelines Enforcement
+1. Implement automated checks where possible
+2. Train all developers on these guidelines
+3. Establish review processes
+
+---
+
+**Remember: Consistency is key to professional, maintainable, and user-friendly frontend development. When in doubt, always reference `/frontend/style-reference` and follow established patterns.**
