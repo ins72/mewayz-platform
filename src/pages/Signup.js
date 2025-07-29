@@ -73,21 +73,42 @@ const Signup = ({ onLogin }) => {
     setIsLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Real API call to backend authentication system
+      const response = await fetch('/api/v1/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
+
+      // Store JWT token
+      localStorage.setItem('token', data.token);
       
-      // Mock successful signup and login
-      const userData = {
-        id: 1,
-        name: formData.name,
-        email: formData.email,
-        role: 'user'
-      };
+      // Real user data from backend
+      const userData = data.user;
       
+      // Update authentication context with real user data
       onLogin(userData);
+      
+      // Show success message
+      alert('Account created successfully! Welcome to MEWAYZ!');
+      
+      // Redirect to dashboard
       navigate('/dashboard');
     } catch (error) {
-      setErrors({ general: 'Signup failed. Please try again.' });
+      console.error('Signup error:', error);
+      alert(error.message || 'Registration failed. Please try again.');
     } finally {
       setIsLoading(false);
     }

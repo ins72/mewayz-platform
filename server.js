@@ -85,21 +85,34 @@ app.use('/api/v1/auth', authRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+const logger = {
+  info: (message, meta = {}) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[INFO] ${message}`, meta);
+    }
+    // In production, this would use winston, pino, or similar logging service
+  },
+  error: (message, error = {}) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(`[ERROR] ${message}`, error);
+    }
+    // In production, this would log to error tracking service like Sentry
+  }
+};
+
 // Start server
 app.listen(PORT, () => {
-  // SECURITY FIX: Removed production console logging to prevent information disclosure
-if (process.env.NODE_ENV !== 'production') {
-    console.log(`🚀 Mewayz Backend API running on port ${PORT}`);
-    console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-    console.log(`🔗 Health check: http://localhost:${PORT}/health`);
-}
+    logger.info(`🚀 Mewayz Backend API running on port ${PORT}`);
+    logger.info(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+    logger.info(`🔗 Health check: http://localhost:${PORT}/health`);
 });
 
-// Handle unhandled promise rejections
+// Global error handler
 process.on('unhandledRejection', (err, promise) => {
-  console.log(`Error: ${err.message}`);
-  // Close server & exit process
-  process.exit(1);
+    logger.error(`Unhandled Rejection: ${err.message}`);
+    app.close(() => {
+        process.exit(1);
+    });
 });
 
 module.exports = app; 

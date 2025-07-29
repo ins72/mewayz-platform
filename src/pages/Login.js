@@ -58,21 +58,38 @@ const Login = ({ onLogin }) => {
     setIsLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Real API call to backend authentication system
+      const response = await fetch('/api/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      // Store JWT token
+      localStorage.setItem('token', data.token);
       
-      // Mock successful login
-      const userData = {
-        id: 1,
-        name: 'John Doe',
-        email: formData.email,
-        role: 'user'
-      };
+      // Real user data from backend
+      const userData = data.user;
       
-      onLogin(userData);
+      // Update authentication context with real user data
+      onLogin(userData, data.token);
+      
+      // Redirect to dashboard
       navigate('/dashboard');
     } catch (error) {
-      setErrors({ general: 'Login failed. Please try again.' });
+      console.error('Login error:', error);
+      setErrors({ general: error.message || 'Login failed. Please check your credentials.' });
     } finally {
       setIsLoading(false);
     }

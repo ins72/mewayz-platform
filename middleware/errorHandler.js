@@ -2,8 +2,17 @@ const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   error.message = err.message;
 
-  // Log error for debugging
-  console.error(err);
+  // Log error in development only, use proper logging service in production
+  if (process.env.NODE_ENV !== 'production') {
+    console.error(`[ERROR] ${error.message}`, {
+      stack: err.stack,
+      url: req.url,
+      method: req.method,
+      ip: req.ip,
+      userAgent: req.get('User-Agent')
+    });
+  }
+  // In production, this would use winston, pino, or error tracking service like Sentry
 
   // Mongoose bad ObjectId
   if (err.name === 'CastError') {
