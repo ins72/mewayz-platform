@@ -2,6 +2,7 @@ const express = require('express');
 
 const cors = require('cors');
 const compression = require('compression');
+const helmet = require('helmet');
 
 const cookieParser = require('cookie-parser');
 
@@ -69,7 +70,23 @@ const app = express();
 //         SECURITY MIDDLEWARE
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// app.use(helmet());
+// FIXED: Enabled helmet middleware for production security
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'"],
+      fontSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      mediaSrc: ["'self'"],
+      frameSrc: ["'none'"],
+    },
+  },
+  crossOriginEmbedderPolicy: false
+}));
 
 app.use(compression());
 
