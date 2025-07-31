@@ -1,8 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  /* UI8 Core 2.0 Color Palette */
+  --ui8-primary: #6366f1;
+  --ui8-primary-dark: #4f46e5;
+  --ui8-secondary: #64748b;
+  --ui8-accent: #f59e0b;
+  --ui8-success: #10b981;
+  --ui8-warning: #f59e0b;
+  --ui8-error: #ef4444;
+
+  /* UI8 Typography */
+  --ui8-font-family: 'Inter', sans-serif;
+  --ui8-font-size-xs: 0.75rem;
+  --ui8-font-size-sm: 0.875rem;
+  --ui8-font-size-base: 1rem;
+  --ui8-font-size-lg: 1.125rem;
+  --ui8-font-size-xl: 1.25rem;
+
+  /* UI8 Spacing */
+  --ui8-spacing-xs: 0.25rem;
+  --ui8-spacing-sm: 0.5rem;
+  --ui8-spacing-md: 1rem;
+  --ui8-spacing-lg: 1.5rem;
+  --ui8-spacing-xl: 2rem;
+
+  /* UI8 Shadows */
+  --ui8-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ui8-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --ui8-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --ui8-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
   color-scheme: dark light;
 }
 
@@ -10,18 +42,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-variation-settings: normal;
 }
 
 a {
@@ -34,9 +57,16 @@ a {
 }
 
 @layer base {
+  /* UI8 Form Inputs */
   input:not([type='checkbox']):not([type='radio']),
-  textarea {
-    @apply rounded !important;
+  textarea,
+  select {
+    @apply rounded-ui8 border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:outline-none transition-all duration-200;
+  }
+
+  /* UI8 Buttons */
+  button {
+    @apply font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
 }
 
@@ -45,44 +75,54 @@ a {
     @apply h-full;
   }
 
-  .btn {
-    @apply rounded normal-case;
+  /* UI8 Button Components */
+  .btn-ui8-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-ui8 shadow-ui8-md hover:shadow-ui8-lg transition-all duration-200 focus:ring-primary-500;
   }
 
-  .modal-box {
-    @apply rounded;
+  .btn-ui8-secondary {
+    @apply bg-secondary-100 hover:bg-secondary-200 text-secondary-700 font-medium px-6 py-3 rounded-ui8 shadow-ui8-sm hover:shadow-ui8-md transition-all duration-200 focus:ring-secondary-500;
   }
 
-  .btn-primary:focus-visible {
-    @apply outline-primary;
+  .btn-ui8-outline {
+    @apply border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-medium px-6 py-3 rounded-ui8 shadow-ui8-sm hover:shadow-ui8-md transition-all duration-200 focus:ring-primary-500;
   }
 
-  .btn-error:focus-visible {
-    @apply outline-error;
+  /* UI8 Card Components */
+  .card-ui8 {
+    @apply bg-white rounded-ui8-lg shadow-ui8-lg border border-gray-100 p-6 hover:shadow-ui8-xl transition-shadow duration-200;
+  }
+
+  .card-ui8-compact {
+    @apply bg-white rounded-ui8 shadow-ui8-md border border-gray-100 p-4 hover:shadow-ui8-lg transition-shadow duration-200;
+  }
+
+  /* UI8 Modal Components */
+  .modal-ui8 {
+    @apply bg-white rounded-ui8-xl shadow-ui8-2xl border border-gray-100 p-6;
   }
 }
 
-.btn-md {
-  @apply min-h-8 h-10;
-}
-
-.scrollbar {
+/* UI8 Scrollbar */
+.scrollbar-ui8 {
   scrollbar-width: thin;
-  scrollbar-color: #555555 #f0f0f0;
+  scrollbar-color: #cbd5e1 #f1f5f9;
 }
 
-.scrollbar::-webkit-scrollbar {
-  width: 8px;
+.scrollbar-ui8::-webkit-scrollbar {
+  width: 6px;
 }
 
-.scrollbar::-webkit-scrollbar-thumb {
-  background-color: #555555;
+.scrollbar-ui8::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
 }
 
-.scrollbar::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
+.scrollbar-ui8::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+  border-radius: 3px;
 }
 
-.scrollbar::-webkit-scrollbar-button {
+.scrollbar-ui8::-webkit-scrollbar-button {
   display: none;
 }

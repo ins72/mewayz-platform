@@ -30,10 +30,10 @@ const Header = ({ setSidebarOpen }: HeaderProps) => {
   const { user } = data;
 
   return (
-    <div className="sticky top-0 z-40 flex h-14 shrink-0 items-center border-b px-4 sm:gap-x-6 sm:px-6 lg:px-8 bg-white dark:bg-black dark:text-white">
+    <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center border-b border-gray-200 bg-white shadow-ui8-sm px-4 sm:gap-x-6 sm:px-6 lg:px-8">
       <button
         type="button"
-        className="-m-2.5 p-2.5 text-gray-700 dark:text-gray-50 lg:hidden"
+        className="-m-2.5 p-2.5 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-ui8 transition-all duration-200 lg:hidden"
         onClick={() => setSidebarOpen(true)}
       >
         <span className="sr-only">{t('open-sidebar')}</span>
@@ -42,69 +42,57 @@ const Header = ({ setSidebarOpen }: HeaderProps) => {
       <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
         <div className="relative flex flex-1"></div>
         <div className="flex items-center gap-x-4 lg:gap-x-6">
-          <div className="dropdown dropdown-end">
-            <div className="flex items-center cursor-pointer" tabIndex={0}>
+          <div className="relative">
+            <div className="flex items-center cursor-pointer group" tabIndex={0}>
               <span className="hidden lg:flex lg:items-center">
                 <button
-                  className="ml-4 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50"
+                  className="ml-4 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-200"
                   aria-hidden="true"
                 >
                   {user.name}
                 </button>
                 <ChevronDownIcon
-                  className="ml-2 h-5 w-5 text-gray-400"
+                  className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-600 transition-colors duration-200"
                   aria-hidden="true"
                 />
               </span>
             </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 border rounded w-40 space-y-1"
-            >
-              <li
-                onClick={() => {
-                  if (document.activeElement) {
-                    (document.activeElement as HTMLElement).blur();
-                  }
-                }}
-              >
+            <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-ui8 shadow-ui8-lg border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="px-4 py-2 border-b border-gray-100">
+                <p className="text-sm font-medium text-gray-900">{user.name}</p>
+                <p className="text-xs text-gray-500">{user.email}</p>
+              </div>
+
+              <div className="py-1">
                 <Link
                   href="/settings/account"
-                  className="block px-2 py-1 text-sm leading-6 text-gray-900 dark:text-gray-50 cursor-pointer"
+                  className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
                 >
-                  <div className="flex items-center">
-                    <UserCircleIcon className="w-5 h-5 mr-1" /> {t('account')}
-                  </div>
+                  <UserCircleIcon className="w-4 h-4 mr-3" />
+                  {t('account')}
                 </Link>
-              </li>
 
-              {env.darkModeEnabled && (
-                <li>
+                {env.darkModeEnabled && (
                   <button
-                    className="block px-2 py-1 text-sm leading-6 text-gray-900 dark:text-gray-50 cursor-pointer"
+                    className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
                     type="button"
                     onClick={toggleTheme}
                   >
-                    <div className="flex items-center">
-                      <SunIcon className="w-5 h-5 mr-1" /> {t('switch-theme')}
-                    </div>
+                    <SunIcon className="w-4 h-4 mr-3" />
+                    {t('switch-theme')}
                   </button>
-                </li>
-              )}
+                )}
 
-              <li>
                 <button
-                  className="block px-2 py-1 text-sm leading-6 text-gray-900 dark:text-gray-50 cursor-pointer"
+                  className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
                   type="button"
                   onClick={signOut}
                 >
-                  <div className="flex items-center">
-                    <ArrowRightOnRectangleIcon className="w-5 h-5 mr-1" />{' '}
-                    {t('logout')}
-                  </div>
+                  <ArrowRightOnRectangleIcon className="w-4 h-4 mr-3" />
+                  {t('logout')}
                 </button>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
