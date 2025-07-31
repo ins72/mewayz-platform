@@ -52,13 +52,13 @@ This platform features a **complete UI8 Core 2.0 design system** implementation,
 ## 🚀 **Quick Start**
 
 ### **Prerequisites**
-- Node.js 18+ 
+- Node.js 18+
 - Docker and Docker Compose
 - PostgreSQL (or use Docker)
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/mewayz-platform.git
+git clone https://github.com/ins72/mewayz-platform.git
 cd mewayz-platform
 ```
 
@@ -229,7 +229,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📧 **Email**: support@mewayz.com
 - 💬 **Discord**: [Join our community](https://discord.gg/mewayz)
 - 📖 **Documentation**: [docs.mewayz.com](https://docs.mewayz.com)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/mewayz-platform/issues)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/ins72/mewayz-platform/issues)
 
 ---
 
