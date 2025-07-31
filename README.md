@@ -1,271 +1,238 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/boxyhq/jackson/assets/66887028/871d9c0f-d351-49bb-9458-2542830d7910">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/boxyhq/jackson/assets/66887028/4073c181-0653-4d5b-b74f-e7e84fe79da8">
-  <img alt="BoxyHQ Banner" src="https://github.com/boxyhq/jackson/assets/66887028/b40520b7-dbce-400b-88d3-400d1c215ea1">
-</picture>
+# 🚀 **MEWAYZ - Creator Economy Platform**
 
-# ⭐ Enterprise SaaS Starter Kit
+> **The Ultimate Platform for Creators to Monetize, Grow, and Scale Their Digital Business**
 
-<p>
-    <a href="https://github.com/boxyhq/saas-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/boxyhq/saas-starter-kit" alt="Github stargazers"></a>
-    <a href="https://github.com/boxyhq/saas-starter-kit/issues"><img src="https://img.shields.io/github/issues/boxyhq/saas-starter-kit" alt="Github issues"></a>
-    <a href="https://github.com/boxyhq/saas-starter-kit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/boxyhq/saas-starter-kit" alt="license"></a>
-    <a href="https://twitter.com/BoxyHQ"><img src="https://img.shields.io/twitter/follow/BoxyHQ?style=social" alt="Twitter"></a>
-    <a href="https://www.linkedin.com/company/boxyhq"><img src="https://img.shields.io/badge/LinkedIn-blue" alt="LinkedIn"></a>
-    <a href="https://discord.gg/uyb7pYt4Pa"><img src="https://img.shields.io/discord/877585485235630130" alt="Discord"></a>
-</p>
+[![UI8 Core 2.0](https://img.shields.io/badge/Design-UI8%20Core%202.0-blue)](https://ui8.net)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38B2AC)](https://tailwindcss.com)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://docker.com)
 
-The Open Source Next.js SaaS boilerplate for Enterprise SaaS app development.
+## 🎨 **UI8 Core 2.0 Design System**
 
-Please star ⭐ the repo if you want us to continue developing and improving the SaaS Starter Kit! 😀
+This platform features a **complete UI8 Core 2.0 design system** implementation, providing:
 
-## 📖 Additional Resources
+- ✨ **Modern Color Palette**: UI8 Core 2.0 primary colors (#6366f1)
+- 🎯 **Professional Typography**: Inter font with proper hierarchy
+- 📐 **Consistent Spacing**: UI8 spacing system throughout
+- 🌟 **Modern Shadows**: Subtle, professional shadow effects
+- 🔄 **Smooth Transitions**: 200ms transitions on all interactions
+- 📱 **Responsive Design**: Mobile-first approach
 
-Video - [BoxyHQ's SaaS Starter Kit: Your Ultimate Enterprise-Compliant Boilerplate](https://www.youtube.com/watch?v=oF8QIwQIhyo) <br>
-Blog - [Enterprise-ready Saas Starter Kit](https://boxyhq.com/blog/enterprise-ready-saas-starter-kit)
+## 🚀 **Features**
 
-Next.js-based SaaS starter kit saves you months of development by starting you off with all the features that are the same in every product, so you can focus on what makes your app unique.
+### **Creator Economy Focus**
+- 🎯 **Creator Dashboard**: Manage your digital business
+- 💰 **Monetization Tools**: Multiple revenue streams
+- 👥 **Team Collaboration**: Built-in team management
+- 📊 **Analytics**: Track your growth and performance
+- 🔗 **Social Integration**: Connect your social platforms
 
-## 🛠️ Built With
+### **Modern Authentication**
+- 🔐 **Secure Login**: Email/password authentication
+- 🌐 **Social Login**: Google and GitHub integration
+- 🛡️ **Password Management**: Enhanced security features
+- 📧 **Magic Links**: Passwordless authentication
 
-- [Next.js](https://nextjs.org)
-  This is a React framework that provides features such as server-side rendering and static site generation. It's used for building the user interface of your application. The main configuration for Next.js can be found in `next.config.js`.
-- [Tailwind CSS](https://tailwindcss.com)
-  This is a utility-first CSS framework for rapidly building custom user interfaces. It's used for styling the application. The configuration for Tailwind CSS can be found in `postcss.config.js`.
-- [Postgres](https://www.postgresql.org)
-  This is a powerful, open source object-relational database system. It's used for storing application data. The connection to Postgres is likely managed through Prisma.
-- [React](https://reactjs.org)
-  This is a JavaScript library for building user interfaces. It's used for creating the interactive elements of your application. The React components are located in the components directory.
-- [Prisma](https://www.prisma.io)
-  This is an open-source database toolkit. It's used for object-relational mapping, which simplifies the process of writing database queries. Prisma configuration and schema can be found in the prisma directory.
-- [TypeScript](https://www.typescriptlang.org)
-  This is a typed superset of JavaScript that compiles to plain JavaScript. It's used to make the code more robust and maintainable. TypeScript definitions and configurations can be found in files like `next-env.d.ts` and `i18next.d.ts`.
-- [SAML Jackson](https://github.com/boxyhq/jackson) (Provides SAML SSO, Directory Sync)
-  This is a service for handling SAML SSO (Single Sign-On). It's used to allow users to sign in with a single ID and password to any of several related systems i.e (using a single set of credentials). The implementation of SAML Jackson is primarily located within the files associated with authentication.
-- [Svix](https://www.svix.com/) (Provides Webhook Orchestration)
-  This is a service for handling webhooks. It's used to emit events on user/team CRUD operations, which can then be caught and handled by other parts of the application or external services. The integration of Svix is distributed throughout the codebase, primarily in areas where Create, Read, Update, and Delete (CRUD) operations are executed.
-- [Retraced](https://github.com/retracedhq/retraced) (Provides Audit Logs Service)
-  This is a service for audit logging and data visibility. It helps track user activities within the application i.e (who did what and when in the application). The usage of Retraced would be dispersed throughout the codebase, likely in the files where important actions are performed.
-- [Stripe](https://stripe.com) (Provides Payments)
-  This is a service for handling payments. It's used to process payments for the application. The integration of Stripe is likely found in the files associated with billing and subscriptions.
-- [Playwright](https://playwright.dev) (Provides E2E tests)
-  This is a Node.js library for automating browsers. It's used to run end-to-end tests on the application. The Playwright configuration and tests can be found in the tests directory.
-- [Docker](https://www.docker.com) (Provides Docker Compose)
-  This is a platform for developing, shipping, and running applications. It's used to containerize the application and its dependencies. The Docker configuration can be found in the Dockerfile and docker-compose.yml.
-- [NextAuth.js](https://next-auth.js.org) (Provides Authentication)
-  This is a complete open-source authentication solution for Next.js applications. It's used to handle user authentication and authorization. The NextAuth.js configuration and providers can be found in the `pages/api/auth/[...nextauth].ts` file.
+### **Team Management**
+- 👥 **Team Creation**: Easy team setup and management
+- 👤 **Member Management**: Invite and manage team members
+- 🔄 **Role-based Access**: Granular permissions
+- 📈 **Team Analytics**: Track team performance
 
-## 🚀 Deployment
+## 🛠️ **Tech Stack**
 
-<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fboxyhq%2Fsaas-starter-kit&env=NEXTAUTH_SECRET,SMTP_HOST,SMTP_PORT,SMTP_USER,SMTP_PASSWORD,SMTP_FROM,DATABASE_URL,APP_URL">
-<img width="90" alt="Deploy with Vercel" src="https://vercel.com/button" />
-</a>
+- **Frontend**: Next.js 14, React 18, TypeScript
+- **Styling**: Tailwind CSS with UI8 Core 2.0 design system
+- **Authentication**: NextAuth.js with multiple providers
+- **Database**: PostgreSQL with Prisma ORM
+- **Deployment**: Docker with Docker Compose
+- **UI Components**: Custom UI8 Core 2.0 components
 
-<a href="https://heroku.com/deploy" alt="Deploy to Heroku">
-<img alt="Deploy to Heroku" src="https://www.herokucdn.com/deploy/button.svg" />
-</a>
+## 🚀 **Quick Start**
 
-<a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/boxyhq/saas-starter-kit/tree/main" alt="Deploy to DO">
-<img width="200" alt="Deploy to DO" src="https://www.deploytodo.com/do-btn-blue-ghost.svg" />
-</a>
+### **Prerequisites**
+- Node.js 18+ 
+- Docker and Docker Compose
+- PostgreSQL (or use Docker)
 
-## ✨ Getting Started
-
-Please follow these simple steps to get a local copy up and running.
-
-### Prerequisites
-
-- Node.js (Version: >=18.x)
-- PostgreSQL
-- NPM
-- Docker compose
-
-### Development
-
-#### 1. Setup
-
-- [Fork](https://github.com/boxyhq/saas-starter-kit/fork) the repository
-- Clone the repository by using this command:
-
+### **1. Clone the Repository**
 ```bash
-git clone https://github.com/<your_github_username>/saas-starter-kit.git
+git clone https://github.com/yourusername/mewayz-platform.git
+cd mewayz-platform
 ```
 
-#### 2. Go to the project folder
-
+### **2. Environment Setup**
 ```bash
-cd saas-starter-kit
+cp .env.example .env.local
 ```
 
-#### 3. Install dependencies
+Edit `.env.local` with your configuration:
+```env
+# Database
+DATABASE_URL="postgresql://username:password@localhost:5432/mewayz"
 
-```bash
-npm install
+# Authentication
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="http://localhost:4002"
+
+# OAuth Providers
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+GITHUB_CLIENT_ID="your-github-client-id"
+GITHUB_CLIENT_SECRET="your-github-client-secret"
 ```
 
-#### 4. Set up your .env file
-
-Duplicate `.env.example` to `.env`.
-
+### **3. Docker Deployment (Recommended)**
 ```bash
-cp .env.example .env
-```
-
-#### 5. Create a database (Optional)
-
-To make the process of installing dependencies easier, we offer a `docker-compose.yml` with a Postgres container.
-
-```bash
+# Start the platform
 docker-compose up -d
+
+# The platform will be available at:
+# http://localhost:4002
 ```
 
-#### 6. Set up database schema
-
+### **4. Manual Setup (Alternative)**
 ```bash
+# Install dependencies
+npm install
+
+# Setup database
 npx prisma db push
-```
+npx prisma db seed
 
-#### 7. Start the server
-
-In a development environment:
-
-```bash
+# Start development server
 npm run dev
 ```
 
-#### 8. Start the Prisma Studio
+## 🎨 **Design System**
 
-Prisma Studio is a visual editor for the data in your database.
+### **UI8 Core 2.0 Components**
 
-```bash
-npx prisma studio
+```css
+/* Primary Button */
+.btn-ui8-primary {
+  @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-ui8 shadow-ui8-md hover:shadow-ui8-lg transition-all duration-200;
+}
+
+/* Card Component */
+.card-ui8 {
+  @apply bg-white rounded-ui8-lg shadow-ui8-lg border border-gray-100 p-6 hover:shadow-ui8-xl transition-shadow duration-200;
+}
+
+/* Form Input */
+input {
+  @apply rounded-ui8 border border-gray-300 px-4 py-3 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 transition-all duration-200;
+}
 ```
 
-#### 9. Testing
+### **Color Palette**
+- **Primary**: `#6366f1` (UI8 Core 2.0 Blue)
+- **Secondary**: `#64748b` (Slate Gray)
+- **Accent**: `#f59e0b` (Amber)
+- **Success**: `#10b981` (Emerald)
+- **Error**: `#ef4444` (Red)
 
-We are using [Playwright](https://playwright.dev/) to execute E2E tests. Add all tests inside the `/tests` folder.
+## 📱 **Screenshots**
 
-Update `playwright.config.ts` to change the playwright configuration.
+### **Landing Page**
+![Landing Page](docs/screenshots/landing.png)
 
-##### Install Playwright dependencies
+### **Dashboard**
+![Dashboard](docs/screenshots/dashboard.png)
 
-```bash
-npm run playwright:update
+### **Authentication**
+![Authentication](docs/screenshots/auth.png)
+
+## 🔧 **Development**
+
+### **Project Structure**
+```
+├── components/          # React components
+│   ├── auth/           # Authentication components
+│   ├── shared/         # Shared UI components
+│   └── team/           # Team management components
+├── pages/              # Next.js pages
+├── styles/             # Global styles
+├── lib/                # Utility functions
+├── prisma/             # Database schema
+└── docs/               # Documentation
 ```
 
-##### Run E2E tests
-
+### **Available Scripts**
 ```bash
-npm run test:e2e
+# Development
+npm run dev             # Start development server
+npm run build           # Build for production
+npm run start           # Start production server
+
+# Database
+npm run db:push         # Push schema to database
+npm run db:seed         # Seed database with sample data
+npm run db:studio       # Open Prisma Studio
+
+# Linting
+npm run lint            # Run ESLint
+npm run lint:fix        # Fix linting issues
+
+# Type checking
+npm run type-check      # Run TypeScript compiler
 ```
 
-_Note: HTML test report is generated inside the `report` folder. Currently supported browsers for test execution `chromium` and `firefox`_
+## 🚀 **Deployment**
 
-## ⚙️ Feature configuration
+### **Docker Deployment**
+```bash
+# Production build
+docker-compose -f docker-compose.prod.yml up -d
 
-To get started you only need to configure the database by following the steps above. For more advanced features, you can configure the following:
+# Development
+docker-compose up -d
+```
 
-### Authentication with NextAuth.js
+### **Vercel Deployment**
+1. Connect your GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
 
-The default login options are email and GitHub. Configure below:
+### **Railway Deployment**
+1. Connect your GitHub repository to Railway
+2. Add PostgreSQL database
+3. Set environment variables
+4. Deploy automatically
 
-1. Generate a secret key for NextAuth.js by running `openssl rand -base64 32` and adding it to the `.env` file as `NEXTAUTH_SECRET`.
-2. For email login, configure the `SMTP_*` environment variables in the `.env` file to send magic link login emails. You can use services like [AWS SES](https://aws.amazon.com/ses/), [Sendgrid](https://sendgrid.com/) or [Resend](https://resend.com/).
-3. For social login with GitHub and Google, you need to create OAuth apps in the respective developer consoles and add the client ID and secret to the `.env` file. The default is email login and For GitHub, follow the instructions [here](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app). For Google, follow the instructions [here](https://support.google.com/cloud/answer/6158849?hl=en).
+## 🤝 **Contributing**
 
-### Svix Webhooks
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-1. Create an account on [Svix](https://www.svix.com/)
-2. The authenticaton token and add `SVIX_API_KEY` to the `.env` file.
+### **Development Workflow**
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### Stripe Payments
+## 📄 **License**
 
-1. Create an account on [Stripe](https://stripe.com/)
-2. Add the [Stripe API secret key](https://dashboard.stripe.com/apikeys) to the `.env` file as `STRIPE_SECRET_KEY`.
-3. Create a webhook in the [Stripe dashboard](https://dashboard.stripe.com/webhooks). The URL is your app hostname plus `/api/webhooks/stripe`. If you want to set this up locally you will need to use the [Stripe CLI forwarder](https://docs.stripe.com/webhooks#test-webhook).
-4. Once created, add the signing secret to the `.env` file as `STRIPE_WEBHOOK_SECRET`.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Recaptcha
+## 🙏 **Acknowledgments**
 
-1. Create an account on [Google reCAPTCHA](https://www.google.com/recaptcha/admin/enterprise). This will create a Google Cloud account if you don't have one.
-2. From the Key Details in the [Google Cloud Console](https://console.cloud.google.com/security/recaptcha), add the reCAPTCHA ID to the `.env` file as `RECAPTCHA_SITE_KEY`.
-3. Click Key Details > Integration then click Use legacy key to get the secret key and add it to the `.env` file as `RECAPTCHA_SECRET_KEY`.
+- **UI8 Core 2.0**: Design system inspiration and components
+- **BoxyHQ**: Original SaaS Starter Kit foundation
+- **Next.js Team**: Amazing React framework
+- **Tailwind CSS**: Utility-first CSS framework
+- **Prisma**: Modern database toolkit
 
-### Sentry
+## 📞 **Support**
 
-1. Create an account on [Sentry](https://sentry.io/), skip the onboarding and create a new Next.js project.
-2. At the bottom of the page, get the DSN and add it to the `.env` file as `SENTRY_DSN`. The other variables are optional.
+- 📧 **Email**: support@mewayz.com
+- 💬 **Discord**: [Join our community](https://discord.gg/mewayz)
+- 📖 **Documentation**: [docs.mewayz.com](https://docs.mewayz.com)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/mewayz-platform/issues)
 
-#### Fully customizable boilerplate out of the box, see images below 👇👇👇
+---
 
-![saas-starter-kit-poster](/public/saas-starter-kit-poster.png)
+**Built with ❤️ for the Creator Economy**
 
-## 🥇 Features
-
-- Create account
-- Sign in with Email and Password
-- Sign in with Magic Link
-- Sign in with SAML SSO
-- Sign in with Google [[Setting up Google OAuth](https://support.google.com/cloud/answer/6158849?hl=en)]
-- Sign in with GitHub [[Creating a Github OAuth App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)]
-- Directory Sync (SCIM)
-- Update account
-- Create team
-- Delete team
-- Invite users to the team
-- Manage team members
-- Update team settings
-- Webhooks & Events
-- Internationalization
-- Audit logs
-- Roles and Permissions
-- Dark mode
-- Email notifications
-- E2E tests
-- Docker compose
-- Prisma Studio
-- Update member role
-- Directory Sync Events
-- Avatar Upload
-- SAML SSO
-- Audit Log
-- Webhook
-- Payments
-- Security Headers
-
-## ➡️ Coming Soon
-
-- Billing & subscriptions
-- Unit and integration tests
-
-## ✨ Contributing
-
-Thanks for taking the time to contribute! Contributions make the open-source community a fantastic place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-Please try to create bug reports that are:
-
-- _Reproducible._ Include steps to reproduce the problem.
-- _Specific._ Include as much detail as possible: which version, what environment, etc.
-- _Unique._ Do not duplicate existing opened issues.
-- _Scoped to a Single Bug._ One bug per report.
-
-[Contributing Guide](https://github.com/boxyhq/saas-starter-kit/blob/main/CONTRIBUTING.md)
-
-## 🤩 Community
-
-- [Discord](https://discord.gg/uyb7pYt4Pa) (For live discussion with the Open-Source Community and BoxyHQ team)
-- [Twitter](https://twitter.com/BoxyHQ) / [LinkedIn](https://www.linkedin.com/company/boxyhq) (Follow us)
-- [Youtube](https://www.youtube.com/@boxyhq) (Watch community events and tutorials)
-- [GitHub Issues](https://github.com/boxyhq/saas-starter-kit/issues) (Contributions, report issues, and product ideas)
-
-## 🌍 Contributors
-
-<a href="https://github.com/boxyhq/saas-starter-kit/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=boxyhq/saas-starter-kit" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
-
-## 🛡️ License
-
-[Apache 2.0 License](https://github.com/boxyhq/saas-starter-kit/blob/main/LICENSE)
+[MEWAYZ Platform](https://mewayz.com) | [UI8 Core 2.0](https://ui8.net) | [Documentation](https://docs.mewayz.com)
